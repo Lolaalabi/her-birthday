@@ -5,7 +5,7 @@ const PhotoBorder = ({ images, children }) => {
   const repeatedImages = Array.from({ length: repeatCount }, (_, i) => images[i % images.length]);
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen bg-white overflow-hidden">
       {/* Left border */}
       <div className="hidden lg:flex absolute top-0 left-0 h-full flex-col z-20 overflow-hidden px-3">
         {repeatedImages.map((img, i) => (
