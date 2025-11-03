@@ -83,7 +83,7 @@ const ScrollContainer = ({}) => {
         </div>
         <main className="flex min-h-screen flex-col justify-between ">
           <section className="max-w-[792px] w-full mt-[35vh] relative">
-            <div className="h-full right-0 top-0 absolute w-[12%] bg-gradient-to-l  dark:from-zinc-900 from-whiteout to-transparent z-20" />
+           <div class="hidden lg:block h-full right-0 top-0 absolute w-[12%] bg-gradient-to-l dark:from-zinc-900 from-whiteout to-transparent z-20"></div>
           <ul>
   <ContentBox
     setActiveIndex={setActiveContentBoxIndex}
