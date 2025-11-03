@@ -19,7 +19,7 @@ const PhotoBorder = ({ images, children }) => {
       </div>
 
       {/* Right border */}
-      <div className="hidden lg:flex absolute top-0 right-0 h-full flex-col z-20 overflow-hidden px-3">
+      <div className="flex absolute top-0 right-0 h-full flex-col z-20 overflow-hidden px-3">
         {repeatedImages.map((img, i) => (
           <img
             key={`right-${i}`}

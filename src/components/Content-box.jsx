@@ -46,7 +46,7 @@ const ContentBox = ({
       </div>
 
       {/* TOP RIGHT CORNER - L-shape arrangement */}
-      <div className="absolute -top-1 -right-1 z-20">
+      {/* <div className="absolute -top-1 -right-1 z-20">
         <div className="flex justify-end">
           <img src="/photo4.jpg" className="w-4 h-4 object-cover border border-stone-300" alt="" />
           <img src="/photo30.jpg" className="w-4 h-4 object-cover border border-stone-300" alt="" />
@@ -54,7 +54,7 @@ const ContentBox = ({
         <div className="flex justify-end">
           <img src="/photo6.jpg" className="w-4 h-4 object-cover border border-stone-300" alt="" />
         </div>
-      </div>
+      </div> */}
 
       {/* BOTTOM LEFT CORNER - L-shape arrangement */}
       {/* <div className="absolute -bottom-1 -left-1 z-20">
