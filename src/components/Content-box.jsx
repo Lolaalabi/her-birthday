@@ -98,7 +98,7 @@ const ContentBox = ({
             ? "border-blue-500 bg-zinc-50 dark:bg-whiteout/[0.025]  backdrop-blur-lg border-t dark:border-blue-400"
             : "dark:border-blue-900/20 border-blue-200"
         }  ${index === 0 ? "" : "border-t-0"} pl-4 pr-4 py-6 md:p-[36px]`}
-        style={activeIndex !== index ? undefined : { opacity: Math.max(scrollYProgress.get(), 0.5) }}
+        style={{ opacity: 1 }}
       >
         {children}
         <ul className="flex flex-wrap gap-4 md:gap-8 text-xs md:text-sm dark:text-zinc-100/25 text-blackout/25 mt-4 font-mono">

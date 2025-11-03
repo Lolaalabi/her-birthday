@@ -1,40 +1,45 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ContentBox from "./Content-box";
 import { useDebounce } from "@uidotdev/usehooks";
-import { ExternalLink } from "lucide-react";
-
 
 const WORDS = ["creative", "effortless", "graceful", "funny"];
 
-const ScrollContainer = ({}) => {
+const ScrollContainer = () => {
   const [activeContentBoxIndex, setActiveContentBoxIndex] = useState(0);
   const debouncedActiveContentIndex = useDebounce(activeContentBoxIndex, 300);
 
   return (
-    <div className="relative w-full md:mb-[200px] max-w-screen  flex flex-col items-center">
+    <div className="relative w-full md:mb-[200px] max-w-screen flex flex-col items-center">
+      {/* Logo */}
       <div>
-         <img className="fixed  top-5 left-12 w-20 px-3 " src='/animated-gif.gif' alt='logo'></img>
+        <img
+          className="fixed top-5 left-12 w-20 px-3"
+          src="/animated-gif.gif"
+          alt="logo"
+        />
       </div>
+
       <div className="relative">
+        {/* Header words animation */}
         <div className="fixed z-20 top-[33vh] left-50 pl-4 md:pl-0 translate-x-0 lg:translate-x-[100px] md:translate-x-[130px] max-w-[792px] w-full flex justify-center">
-          <div className="flex gap-1.5 md:gap-4 relative md:-translate-x-[230px] w-full text-[22px] md:text-[32px] font-semibold items-baseline left-0 ">
+          <div className="flex gap-1.5 md:gap-4 relative md:-translate-x-[230px] w-full text-[22px] md:text-[32px] font-semibold items-baseline left-0">
             <div className="flex md:gap-4 gap-1.5 items-baseline">
               Qaozy{" "}
               <span className="opacity-50 text-lg md:text-[22px]">is</span>{" "}
             </div>
             <div className="relative leading-normal h-[22px] md:h-[33px]">
               <div>
-                <div className="absolute h-full flex whitespace-nowrap top-0 left-0 ">
+                <div className="absolute h-full flex whitespace-nowrap top-0 left-0">
                   <div>
                     <AnimatePresence initial={false}>
                       {WORDS.map((word, i) => {
                         if (i === activeContentBoxIndex)
                           return (
                             <motion.div
-                              className="absolute left-0 top-0  rounded-lg"
+                              className="absolute left-0 top-0 rounded-lg"
                               key={word + i}
                               initial={{
                                 x: -20,
@@ -81,93 +86,101 @@ const ScrollContainer = ({}) => {
             </div>
           </div>
         </div>
-        <main className="flex min-h-screen flex-col justify-between ">
+
+        {/* Main Scroll Section */}
+        <main className="flex min-h-screen flex-col justify-between">
           <section className="max-w-[792px] w-full mt-[35vh] relative">
-           <div class="hidden lg:block h-full right-0 top-0 absolute w-[12%] bg-gradient-to-l dark:from-zinc-900 from-whiteout to-transparent z-20"></div>
-          <ul>
-  <ContentBox
-    setActiveIndex={setActiveContentBoxIndex}
-    activeIndex={debouncedActiveContentIndex}
-    index={0}
-    artboard="AWARE"
-    keywords={["vision", "detail", "aesthetics"]}
-  >
-    <p className="text-lg leading-normal md:text-[22px] max-w-[420px] dark:text-zinc-100/50 text-blackout/50 font-medium">
-      She captures beauty{" "}
-      <span className="dark:text-zinc-100 text-blackout">as it is, raw,</span>{" "}
-      spontaneous,{" "}
-      <span className="dark:text-zinc-100 text-blackout">
-        and a little imperfect.
-      </span>
-    </p>
-  </ContentBox>
+            {/* Overlay gradient (hidden on mobile) */}
+            <div className="hidden md:block h-full right-0 top-0 absolute w-[12%] bg-gradient-to-l dark:from-zinc-900 from-white to-transparent z-20" />
 
-  <ContentBox
-    setActiveIndex={setActiveContentBoxIndex}
-    activeIndex={debouncedActiveContentIndex}
-    index={1}
-    artboard="CUTTING EDGE"
-    keywords={["natural", "inspiring", "gifted"]}
-  >
-    <p className="text-lg leading-normal md:text-[22px] max-w-[450px] dark:text-zinc-100/50 text-blackout/50 font-medium">
-      <span className="dark:text-zinc-100 text-blackout">
-        She literally doesn&apos;t even try and
-      </span>{" "}
-      <span>still outdoes everyone.</span>{" "}
-      <span>Truly one of</span>{" "}
-      <span className="dark:text-zinc-100 text-blackout">a kind.</span>
-    </p>
-  </ContentBox>
+            <ul>
+              <ContentBox
+                setActiveIndex={setActiveContentBoxIndex}
+                activeIndex={debouncedActiveContentIndex}
+                index={0}
+                artboard="AWARE"
+                keywords={["vision", "detail", "aesthetics"]}
+              >
+                <p className="text-lg leading-normal md:text-[22px] max-w-[420px] dark:text-zinc-100/50 text-blackout/50 font-medium">
+                  She captures beauty{" "}
+                  <span className="dark:text-zinc-100 text-blackout">
+                    as it is, raw,
+                  </span>{" "}
+                  spontaneous,{" "}
+                  <span className="dark:text-zinc-100 text-blackout">
+                    and a little imperfect.
+                  </span>
+                </p>
+              </ContentBox>
 
-  <ContentBox
-    setActiveIndex={setActiveContentBoxIndex}
-    activeIndex={debouncedActiveContentIndex}
-    index={2}
-    artboard="PROFICIENT"
-    keywords={["focus", "purpose"]}
-  >
-    <div className="relative">
-      <p className="text-lg leading-normal md:text-[22px] max-w-[500px] dark:text-zinc-100/50 text-blackout/50 font-medium">
-        Everything just,{" "}
-        <span className="dark:text-zinc-100 text-blackout whitespace-nowrap">
-          falls in place,
-        </span>{" "}
-        for her she never, <br />had to try too hard.
-      </p>
+              <ContentBox
+                setActiveIndex={setActiveContentBoxIndex}
+                activeIndex={debouncedActiveContentIndex}
+                index={1}
+                artboard="CUTTING EDGE"
+                keywords={["natural", "inspiring", "gifted"]}
+              >
+                <p className="text-lg leading-normal md:text-[22px] max-w-[450px] dark:text-zinc-100/50 text-blackout/50 font-medium">
+                  <span className="dark:text-zinc-100 text-blackout">
+                    She literally doesn&apos;t even try and
+                  </span>{" "}
+                  <span>still outdoes everyone.</span>{" "}
+                  <span>Truly one of</span>{" "}
+                  <span className="dark:text-zinc-100 text-blackout">
+                    a kind.
+                  </span>
+                </p>
+              </ContentBox>
+
+              <ContentBox
+                setActiveIndex={setActiveContentBoxIndex}
+                activeIndex={debouncedActiveContentIndex}
+                index={2}
+                artboard="PROFICIENT"
+                keywords={["focus", "purpose"]}
+              >
+                <div className="relative">
+                  <p className="text-lg leading-normal md:text-[22px] max-w-[500px] dark:text-zinc-100/50 text-blackout/50 font-medium">
+                    Everything just,{" "}
+                    <span className="dark:text-zinc-100 text-blackout whitespace-nowrap">
+                      falls in place,
+                    </span>{" "}
+                    for her she never, <br />
+                    had to try too hard.
+                  </p>
+                </div>
+              </ContentBox>
+
+              <ContentBox
+                setActiveIndex={setActiveContentBoxIndex}
+                activeIndex={debouncedActiveContentIndex}
+                index={3}
+                artboard="DARING"
+                keywords={["entrepreneur", "agency"]}
+              >
+                <p className="text-lg leading-normal md:text-[22px] max-w-[500px] dark:text-zinc-100/50 text-blackout/50 font-medium">
+                  I&apos;m the co-founder of{" "}
+                  <span className="dark:text-zinc-100 text-blackout whitespace-nowrap">
+                    {/* 
+                    <Link
+                      href="https://adlerlagune.com"
+                      target="_blank"
+                      className="underline inline-flex dark:text-whiteout/100 gap-1 items-center font-semibold text-blackout/100"
+                    >
+                      adlerlagune
+                      <ExternalLink strokeWidth={3} width={20} />
+                    </Link> 
+                    */}
+                  </span>{" "}
+                  a digital agency that also dabbles in original products.
+                </p>
+              </ContentBox>
+            </ul>
+          </section>
+        </main>
+      </div>
     </div>
-  </ContentBox>
-
-  <ContentBox
-    setActiveIndex={setActiveContentBoxIndex}
-    activeIndex={debouncedActiveContentIndex}
-    index={3}
-    artboard="DARING"
-    keywords={["entrepreneur", "agency"]}
-  >
-    <p className="text-lg leading-normal md:text-[22px] max-w-[500px] dark:text-zinc-100/50 text-blackout/50 font-medium">
-      I&apos;m the co-founder of{" "}
-      <span className="dark:text-zinc-100 text-blackout whitespace-nowrap">
-        {/* 
-        <Link
-          href="https://adlerlagune.com"
-          target="_blank"
-          className="underline inline-flex dark:text-whiteout/100 gap-1 items-center font-semibold text-blackout/100"
-        >
-          adlerlagune
-          <ExternalLink strokeWidth={3} width={20} />
-        </Link> 
-        */}
-      </span>{" "}
-      a digital agency that also dabbles in original products.
-    </p>
-  </ContentBox>
-</ul>
-
-</section>
-</main>
-</div>
-</div>
-);
+  );
 };
 
 export default ScrollContainer;
