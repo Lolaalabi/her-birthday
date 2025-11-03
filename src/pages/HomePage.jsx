@@ -6,7 +6,7 @@ import Nav from '../components/Nav';
 const HomePage = () => {
   return (
     <>
-    <div className='bg-black' >
+    <div className='bg-white lg:bg-black' >
      <Hero/>
     </div>
    
