@@ -5,9 +5,9 @@ const PhotoBorder = ({ images, children }) => {
   const repeatedImages = Array.from({ length: repeatCount }, (_, i) => images[i % images.length]);
 
   return (
-    <div className="relative bg-white overflow-hidden">
-      {/* Left border - fixed position */}
-      <div className=" hidden lg:flex absolute top-0 left-0  flex-col z-30 overflow-hidden px-3 ">
+    <div className="relative min-h-screen bg-black overflow-hidden">
+      {/* Left border */}
+      <div className="hidden lg:flex absolute top-0 left-0 h-full flex-col z-20 overflow-hidden px-3">
         {repeatedImages.map((img, i) => (
           <img
             key={`left-${i}`}
@@ -18,8 +18,8 @@ const PhotoBorder = ({ images, children }) => {
         ))}
       </div>
 
-      {/* Right border - fixed position */}
-      <div className="absolute top-0 right-0  flex flex-col z-30 overflow-hidden px-3">
+      {/* Right border */}
+      <div className="hidden lg:flex absolute top-0 right-0 h-full flex-col z-20 overflow-hidden px-3">
         {repeatedImages.map((img, i) => (
           <img
             key={`right-${i}`}
@@ -30,8 +30,8 @@ const PhotoBorder = ({ images, children }) => {
         ))}
       </div>
 
-      {/* Main content with padding to avoid borders */}
-      <main className="relative z-10 px-16 md:px-20 py-10 min-h-screen">
+      {/* Main content */}
+      <main className="relative z-10 px-8 md:px-20 py-10 min-h-screen overflow-y-auto">
         {children}
       </main>
     </div>
